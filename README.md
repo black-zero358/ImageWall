@@ -32,7 +32,6 @@ IMGwall 是一个基于 Next.js 开发的现代化图片展示网站，采用瀑
 1. 克隆项目
 ```bash
 git clone https://github.com/black-zero358/ImageWall.git
-cd my-app
 ```
 
 2. 安装依赖
