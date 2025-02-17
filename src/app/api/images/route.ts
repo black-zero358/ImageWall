@@ -47,6 +47,24 @@ async function processImage(imagePath: string): Promise<ImageInfo | null> {
     const thumbnailFileName = `${id}-${fileName}`;
     const thumbnailPath = path.join(THUMBNAILS_DIR, thumbnailFileName);
 
+    // 检查缩略图是否已存在
+    const existingThumbnails = fs.readdirSync(THUMBNAILS_DIR);
+    const existingThumbnail = existingThumbnails.find(thumb => thumb.endsWith(fileName));
+
+    if (existingThumbnail) {
+      // 如果缩略图已存在，直接使用现有的缩略图
+      const dimensions = await getImageDimensions(imagePath);
+      const existingId = existingThumbnail.split('-')[0];
+      return {
+        id: existingId,
+        src: `/images/${fileName}`,
+        thumbnailSrc: `/thumbnails/${existingThumbnail}`,
+        width: dimensions.width,
+        height: dimensions.height
+      };
+    }
+
+    // 如果缩略图不存在，则生成新的缩略图
     await generateThumbnail(imagePath, thumbnailPath);
     const dimensions = await getImageDimensions(imagePath);
 
