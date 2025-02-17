@@ -4,6 +4,10 @@ import { useEffect, useState } from 'react';
 import ImageGallery from './components/ImageGallery';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImages } from '@fortawesome/free-regular-svg-icons';
+// 从环境变量中获取配置
+const config = {
+  imageCheckInterval: process.env.NEXT_PUBLIC_IMAGE_CHECK_INTERVAL ? parseInt(process.env.NEXT_PUBLIC_IMAGE_CHECK_INTERVAL) : 60000
+};
 
 interface ImageData {
   id: string;
@@ -29,8 +33,8 @@ export default function Home() {
 
     fetchImages();
 
-    // 设置轮询间隔，每30秒检查一次新图片
-    const interval = setInterval(fetchImages, 30000);
+    // 设置轮询间隔，从配置文件中读取检查间隔时间
+    const interval = setInterval(fetchImages, config.imageCheckInterval);
     return () => clearInterval(interval);
   }, []);
 
