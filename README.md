@@ -75,11 +75,8 @@ my-app/
 
 ```json
 {
-  "imageCheckInterval": 60000,  // 图片检查间隔时间（毫秒）
-  "server": {
-    "host": "localhost",  // 服务器主机地址
-    "port": 3000         // 服务器端口号
-  }
+  "imageCheckInterval": 60000  // 图片检查间隔时间（毫秒）
+
 }
 ```
 

@@ -1,7 +1,3 @@
 {
-  "imageCheckInterval": 60000,
-  "server": {
-    "host": "localhost",
-    "port": 3000
-  }
+  "imageCheckInterval": 60000
 }
