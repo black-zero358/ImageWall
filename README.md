@@ -73,6 +73,9 @@ my-app/
 
 项目使用 `.env.local` 文件进行配置管理，位于项目根目录。以下是配置项的详细说明：
 
+### host与port
+在package.json中配置
+
 ### 环境变量配置项
 
 - **NEXT_PUBLIC_IMAGE_CHECK_INTERVAL**: 设置图片检查的时间间隔，单位为毫秒。默认值为60000（1分钟）。
@@ -87,8 +90,6 @@ NEXT_PUBLIC_IMAGE_CHECK_INTERVAL=60000
 ### 配置项说明
 
 - **imageCheckInterval**: 设置图片检查的时间间隔，单位为毫秒。默认值为60000（1分钟）。
-- **server.host**: 设置服务器主机地址，默认为 "localhost"。
-- **server.port**: 设置服务器监听端口，默认为 3000。
 
 你可以根据需要修改这些配置项来自定义项目的行为。
 
