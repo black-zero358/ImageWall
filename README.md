@@ -71,13 +71,17 @@ my-app/
 
 ## 配置说明
 
-项目使用 `config.json` 文件进行配置管理，位于项目根目录。以下是配置项的详细说明：
+项目使用 `.env.local` 文件进行配置管理，位于项目根目录。以下是配置项的详细说明：
 
-```json
-{
-  "imageCheckInterval": 60000  // 图片检查间隔时间（毫秒）
+### 环境变量配置项
 
-}
+- **NEXT_PUBLIC_IMAGE_CHECK_INTERVAL**: 设置图片检查的时间间隔，单位为毫秒。默认值为60000（1分钟）。
+
+### 配置示例
+
+```env
+# 图片检查间隔时间（毫秒）
+NEXT_PUBLIC_IMAGE_CHECK_INTERVAL=60000
 ```
 
 ### 配置项说明

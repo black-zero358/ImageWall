@@ -9,6 +9,8 @@ const config = {
   imageCheckInterval: process.env.NEXT_PUBLIC_IMAGE_CHECK_INTERVAL ? parseInt(process.env.NEXT_PUBLIC_IMAGE_CHECK_INTERVAL) : 60000
 };
 
+console.log('Image check interval:', config.imageCheckInterval);
+
 interface ImageData {
   id: string;
   src: string;
