@@ -5,6 +5,10 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImages } from '@fortawesome/free-regular-svg-icons';
+import { initDirectories } from './utils/initDirectories';
+
+// 初始化必要的目录
+initDirectories();
 
 config.autoAddCss = false;
 
