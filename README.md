@@ -6,19 +6,23 @@ IMGwall 是一个基于 Next.js 开发的现代化图片展示网站，采用瀑
 
 ## 功能特性
 
-- 瀑布流布局：自适应的图片展示方式
+- 瀑布流布局：使用 react-masonry-css 实现自适应的图片展示方式
 - 响应式设计：完美适配各种屏幕尺寸
 - 图片预览：支持图片放大预览
 - 图片管理：支持图片上传和管理
-- 性能优化：使用 Next.js 图片组件实现图片优化
+- 性能优化：使用 Next.js 图片组件和 Sharp 实现图片优化
+- 图标支持：集成 Font Awesome 图标库
 
 ## 技术栈
 
-- **前端框架**：[Next.js](https://nextjs.org)
+- **前端框架**：[Next.js](https://nextjs.org) 15.1.7
 - **UI 框架**：[Tailwind CSS](https://tailwindcss.com)
 - **字体优化**：[next/font](https://nextjs.org/docs/app/building-your-application/optimizing/fonts)
 - **类型检查**：TypeScript
 - **代码规范**：ESLint
+- **图片处理**：Sharp
+- **图标库**：Font Awesome
+- **布局组件**：react-masonry-css
 
 ## 快速开始
 
@@ -52,7 +56,7 @@ yarn dev
 pnpm dev
 ```
 
-访问 [http://localhost:3000](http://localhost:3000) 查看网站运行效果。
+访问 [http://127.0.0.1:3001](http://127.0.0.1:3001) 查看网站运行效果。
 
 ## 项目结构
 
@@ -60,11 +64,20 @@ pnpm dev
 my-app/
 ├── public/          # 静态资源目录
 │   ├── images/      # 图片资源
-│   └── thumbnails/  # 缩略图
+│   ├── thumbnails/  # 缩略图
+│   └── *.svg        # SVG 图标文件
 ├── src/
-│   └── app/        # 应用程序代码
+│   ├── app/        # 应用程序代码
+│   │   ├── api/    # API 路由
+│   │   ├── components/ # 组件
+│   │   ├── utils/  # 工具函数
+│   │   ├── globals.css # 全局样式
+│   │   ├── layout.tsx # 布局组件
+│   │   └── page.tsx   # 主页面
 ├── tailwind.config.ts    # Tailwind CSS 配置
 ├── next.config.ts        # Next.js 配置
+├── postcss.config.mjs    # PostCSS 配置
+├── eslint.config.mjs     # ESLint 配置
 └── package.json          # 项目依赖和脚本
 ```
 
@@ -72,8 +85,13 @@ my-app/
 
 项目使用 `.env.local` 文件进行配置管理，位于项目根目录。以下是配置项的详细说明：
 
-### host与port
-在package.json中配置
+### 服务器配置
+
+在 `package.json` 的 scripts 中配置了开发服务器的主机和端口：
+
+```json
+"dev": "next dev --turbopack -H 127.0.0.1 -p 3001"
+```
 
 ### 环境变量配置项
 
@@ -97,6 +115,8 @@ NEXT_PUBLIC_IMAGE_CHECK_INTERVAL=60000
 - 页面开发：修改 `src/app` 目录下的文件
 - 样式调整：使用 Tailwind CSS 类名或修改 `tailwind.config.ts`
 - 静态资源：将图片等静态资源放在 `public` 目录下
+- 组件开发：在 `src/app/components` 目录下创建新组件
+- API 开发：在 `src/app/api` 目录下添加新的 API 路由
 
 ## 部署
 
